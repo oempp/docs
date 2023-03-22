@@ -1,0 +1,64 @@
+웹폼 관련 요소 및 속성
+
+method		전송 방식 선택
+		- get : 256~4096 byte까지만 전송 가능
+		- post : 입력 내용의 길이에 제한 X
+
+name		form의 이름
+		서버로 제출된 폼 데이터(form data)를 참조하기 위해 사용
+
+action		form을 전송할 서버 쪽의 script 파일을 지정
+		전송되는 서버 url 또는 html 링크
+
+target		action에서 지정한 script 파일을 현재 창이 아닌 다른 위치에 열도록 지정
+
+autocomplete	자동 완성.
+		on으로 명시하면, 브라우저는 사용자가 이전에 입력했던 값들을 기반으로 사용자가 입력한 값과 비슷한 값들을 드롭다운 옵션으로 보여준다.
+
+enctype		폼 데이터(form data)가 서버로 제출될 때 해당 데이터가 인코딩되는 방법을 명시
+		- application/x-www-form-urlencoded 기본값으로, 모든 문자들은 서버로 보내기 전에 인코딩됨을 명시함. 
+		- multipart/form-data 모든 문자를 인코딩하지 않음을 명시함. 이 방식은 <form> 요소가 파일이나 이미지를 서버로 전송할 때 주로 사용함. 
+		- text/plain 공백 문자(space)는 "+" 기호로 변환하지만, 나머지 문자는 모두 인코딩되지 않음을 명시함.
+
+novalidate	폼 데이터(form data)를 서버로 제출할 때 해당 데이터의 유효성을 검사하지 않음을 명시
+
+
+input type 속성 종류
+
+<input type="button">
+<input type="checkbox">
+<input type="color">
+<input type="date">
+<input type="datetime-local">
+<input type="email">
+<input type="file">
+<input type="hidden">
+<input type="image">
+<input type="month">
+<input type="number">
+<input type="password">
+<input type="radio">
+<input type="range">
+<input type="reset">
+<input type="search">
+<input type="submit">
+<input type="tel">
+<input type="text">
+<input type="time">
+<input type="url">
+<input type="week">
+
+insert into members(u_id, pwd, u_name, gender, birth, mobile, email, pscode, addr_b, addr_d, reg_date) values('tws','admin','1111', '남', '19880530', '01088612375', 'thdxodns@naver.com', '11764', '경기도', '으장부시', '20221031');
+
+$sql = "insert into members(u_id, name, pwd , gender, birth, mobile, email, pscode, addr_b, addr_d, reg_date) values('$u_id','$u_name','$u_pwd', '$u_gender', '$u_birth', '$u_tel', '$u_email', '$ps_code', '$u_addr2', '$u_addr3', '$reg_date');";
+//mysqli_close("연결 객체");
+location.href = "welcome.php";
+mysqli_set_charset($dbcon, "utf8");
+
+
+Create table notice(idx int auto_increment primary key,
+n_title varchar(20) not null,
+n_content text not null,
+writer varchar(20) not null,
+w_date datetime not null,
+cnt int default 0);
